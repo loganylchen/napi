@@ -1,0 +1,7 @@
+website:
+  sidebar:
+    contents:
+      - index.ipynb
+      - 000_guppy.ipynb
+      - 001_utils.ipynb
+      - 002_worker.ipynb

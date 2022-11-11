@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "napi"
+  site-url: "https://loganylchen.github.io/napi"
+  description: "Simple API for nanopore"
+  repo-branch: master
+  repo-url: "https://github.com/loganylchen/napi"
