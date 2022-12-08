@@ -4,7 +4,6 @@
 __all__ = ['process_worker']
 
 # %% ../002_worker.ipynb 2
-from multiprocessing import Pool, Manager
 from concurrent.futures import ProcessPoolExecutor
 from rich.progress import track
 

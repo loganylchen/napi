@@ -16,7 +16,7 @@ from .worker import process_worker
 from .guppy import GuppyCalledRead, get_signal_of_seq_loc
 
 # %% ../001_utils.ipynb 4
-FORMAT = "%(filename)s %(message)s"
+FORMAT = "|%(message)s"
 logging.basicConfig(
     level=logging.WARNING, format=FORMAT, datefmt="[%Y-%m-%d,%X]", handlers=[RichHandler(rich_tracebacks=True)]
 )
@@ -49,7 +49,7 @@ def loading_signal(read_list,fast5_dir,fast5_df,thread=2):
         for read_id in list(target_reads_df.loc[target_reads_df['filename'] == fast5_file,'read_id']):
             params_list.append({
                 'fast5_file': f'{fast5_dir}/{fast5_file}', 'read_id': read_id})
-    tmp_loading = process_worker(_load_signal,params_list,thread)
+    tmp_loading = process_worker(_load_signal,params_list,thread,desc='loading signal')
     target_signals = {}
     for i,j in tmp_loading:
         target_signals[i]=j
