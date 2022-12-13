@@ -48,7 +48,7 @@ def get_target_signal(scrappy_signals,start=0, end=None,normalize=True):
     t_signal = np.repeat(scrappy_signals[start:end, 0], np.ceil(
         scrappy_signals[start:end, 2]).astype(int))
     if normalize:
-        return (t_signal-t_signal.mean())/(t_signal.std()+EPS)
+        return ((t_signal-t_signal.mean())/(t_signal.std()+EPS)).astype(np.double)
     else:
-        return t_signal
+        return t_signal.astype(np.double)
 
