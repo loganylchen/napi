@@ -33,7 +33,7 @@ def sequence_to_squiggle(sequence, model='squiggle_r94_rna'):
 
 
 # %% ../003_simulation.ipynb 5
-def get_target_signal(scrappy_signals,start=0, end=None):
+def get_target_signal(scrappy_signals,start=0, end=None,normalize=True):
     '''
     target_signal get the target signal from the raw scrappy signal
 
@@ -47,6 +47,8 @@ def get_target_signal(scrappy_signals,start=0, end=None):
         end = scrappy_signals.shape[0]
     t_signal = np.repeat(scrappy_signals[start:end, 0], np.ceil(
         scrappy_signals[start:end, 2]).astype(int))
-    
-    return (t_signal-t_signal.mean())/(t_signal.std()+EPS)
+    if normalize:
+        return (t_signal-t_signal.mean())/(t_signal.std()+EPS)
+    else:
+        return t_signal
 
