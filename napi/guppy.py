@@ -50,7 +50,7 @@ class GuppyCalledRead(object):
         self.basecall_summary = self.read.get_summary_data(self.basecall_analysis)
         self.first_sample_template = self.segmentation_summary['segmentation']['first_sample_template']
         self.block_stride = self.basecall_summary['basecall_1d_template']['block_stride']
-        self.current_signal = self.read.get_raw_data(scale=self.scale)[self.first_sample_template:]
+        self.current_signal = self.read.get_raw_data(scale=self.scale)[self.first_sample_template:].astype(np.double)
         self.sequence_length = self.basecall_summary['basecall_1d_template']['sequence_length']
         self._move_table_to_list(move_table)
     
